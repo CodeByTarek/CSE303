@@ -1,0 +1,76 @@
+I am writing the lab tasks here:
+
+1. load the adult.data file in your colab session and create a data frame accordingly 
+   [you should already do this]
+
+2. write the code for the following selections
+
+a. select and print the columns - 
+   age, sex, race, occupation, native-country and salary
+   
+   df[['age','sex','race','occupation','native-country','salary']]
+   
+   print(df.loc[:, ['age', 'sex', 'race','occupation', 'native-country', 'salary']])
+   
+b. select and print the middle 10 rows
+	
+	#sumona's version
+	mid=int(len(df.index)//2)
+    print(df.iloc[mid-5:mid+5,:])
+	
+	# my_solution
+	rows = len(df)
+	mid = int(rows/2);
+	df.iloc[mid-5:mid+5,:]
+	
+	# meharaj's version
+	mid = len(df.index) // 2
+	print(df.iloc[mid - 5: mid + 5, :])
+	
+c. select and print the even numbered rows [hint: use df.index]
+
+   df13 = df[df.index % 2 == 0]
+	print(df13)
+	
+d. select and print the odd numbered columns [hint: use df.columns] 
+	
+	#d
+	fil_d = df[df.columns[1::2]]
+	fil_d
+
+e. select and print rows where age > 40
+	
+	#e
+	fill=df.query('age>40')
+	print(fill)
+	
+	#E
+	df3 = df[df['age'] > 40]
+	df3
+	
+	df3 = df[df.age > 40]
+
+
+f. select rows where age > 40 and print only age and salary column
+	df3 = df[df.age > 40]
+	df3[['age','salary']]
+
+	
+g. sort the dataset based on age in descending order and 
+   show the first 5 rows
+   
+   df5 = df.sort_values(by = 'age', ascending = False)
+   df5.head()
+   
+h. sort the dataset based on hours-per-week in ascending order and 
+   show the first 5 rows (only hours-per-week, native-country and salary columns)
+   
+   df5 = df.sort_values(by = 'hours-per-week', ascending = True)
+   df6 = df5[['hours-per-week','native-country','salary']]
+   df6.head()
+
+
+   df['class'].value_counts.plot(kind='bar')
+
+   df.hist(column =['V1'],bins = 50)
+print(df[["V1"]].skew())
