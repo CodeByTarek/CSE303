@@ -1,1 +1,1 @@
-# CSE303
+# CSE303: Statistics for Data Science
